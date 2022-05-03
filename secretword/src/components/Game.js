@@ -10,6 +10,7 @@ const Game = ({
     wrongLetters,
     guesses,
     score,
+    pularQuestao,
 }) => {
     const [letter, setLetter] = useState('')
     const letterInputRef = useRef(null)
@@ -45,6 +46,7 @@ const Game = ({
                     <input type="text" name="letter" maxLength="1" required onChange={e=>setLetter(e.target.value)} value={letter} ref={letterInputRef}/> 
                     <button>Jogar</button>
                 </form>
+                <button id="pularQuestao" onClick={pularQuestao}>Pular</button>
             </div>
             <div className="wrongLettersContainer">
                 <p>Letras já utilizadas:</p>

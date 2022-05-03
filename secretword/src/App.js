@@ -26,14 +26,14 @@ function App() {
     const [score, setScore] = useState(0);
 
     const pickWordAndCategory = useCallback(() => {
-        //pick a random category
+        
         const categories = Object.keys(words);
         const category =
             categories[
                 Math.floor(Math.random() * Object.keys(categories).length)
             ];
 
-        //pick a random category
+        
         const word =
             words[category][Math.floor(Math.random() * words[category].length)];
 
@@ -101,6 +101,9 @@ function App() {
         setGameStage(stages[0].name);
         
     };
+    const pularQuestao = ()=>{
+
+    }
 
     return (
         <div className="App">
@@ -115,6 +118,7 @@ function App() {
                     wrongLetters={wrongLetters}
                     guesses={guesses}
                     score={score}
+                    pularQuestao={pularQuestao}
                 />
             )}
             {gameStage === "end" && <GameOver retry={retry} score={score} word={pickedWord} />}
