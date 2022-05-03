@@ -102,7 +102,12 @@ function App() {
         
     };
     const pularQuestao = ()=>{
-
+        if(guesses<=1){
+            alert('Não pode mais pular')
+            return
+        }
+        setGuesses((actualGuesses)=>actualGuesses-1)
+        startGame()
     }
 
     return (
