@@ -7,6 +7,8 @@ export const useFetch = url=>{
     const [method, setMethod] = useState(null)
     const [callFetch, setCallFetch] = useState(false)
     const [loading, setLoading] = useState(false)
+
+    const [error, setError] = useState(null)
     const httpConfig = (data, method)=>{
         if(method==='POST'){
             setConfig({
@@ -24,10 +26,15 @@ export const useFetch = url=>{
         const fetchData = async()=>{
 
             setLoading(true)
-            const res = await fetch(url)
-            const json = await res.json()
+            try {
+                const res = await fetch(url)
+                const json = await res.json()   
+                setData(json)
+            } catch (error) {
+                
+                setError(error.message)
+            }
 
-            setData(json)
 
             setLoading(false)
         }
@@ -46,5 +53,5 @@ export const useFetch = url=>{
         httpRequest()
     },[config, method, url])
 
-    return {data, httpConfig, loading}
+    return {data, httpConfig, loading, error}
 }
