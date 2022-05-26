@@ -22,8 +22,18 @@
     },
     {
       "name": "Impressora",
-      "price": "399.5",
+      "price": "259",
       "id": 5
+    },
+    {
+      "name": "Certificado Santana",
+      "price": "55.7",
+      "id": 6
+    },
+    {
+      "name": "MASTERMAQ",
+      "price": "43",
+      "id": 7
     }
   ]
 }

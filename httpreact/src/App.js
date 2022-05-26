@@ -5,8 +5,7 @@ import { useFetch } from './hooks/useFetch'
 const url = 'http://localhost:3000/products'
 
 function App() {
-
-  const { data: items, httpConfig } = useFetch(url)
+  const { data: items, httpConfig, loading } = useFetch(url)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
 
@@ -24,14 +23,17 @@ function App() {
   return (
     <div className="App">
       <h1>Lista de Produtos!</h1>
-      <ul>
-        {items &&
-          items.map(product => (
-            <li key={product.id}>
-              {product.name} - {product.price}
-            </li>
-          ))}
-      </ul>
+      {loading && <p>Carregando dados</p>}
+      {!loading && (
+        <ul>
+          {items &&
+            items.map(product => (
+              <li key={product.id}>
+                {product.name} - {product.price}
+              </li>
+            ))}
+        </ul>
+      )}
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>
@@ -52,7 +54,12 @@ function App() {
               onChange={e => setPrice(e.target.value)}
             />
           </label>
+          {!loading && 
           <input type="submit" value="Criar" />
+          }
+          {loading && 
+          <input type="submit" value="Aguarde" disabled />
+          }
         </form>
       </div>
     </div>
