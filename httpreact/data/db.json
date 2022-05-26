@@ -1,39 +1,9 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Camisa",
-      "price": 59.9
-    },
-    {
-      "id": 2,
-      "name": "Calça vermelha",
-      "price": 90
-    },
-    {
-      "id": 3,
-      "name": "Boné aba reta",
-      "price": 29.9
-    },
-    {
-      "name": "Calca",
-      "price": "239",
-      "id": 4
-    },
-    {
       "name": "Impressora",
-      "price": "259",
-      "id": 5
-    },
-    {
-      "name": "Certificado Santana",
-      "price": "55.7",
-      "id": 6
-    },
-    {
-      "name": "MASTERMAQ",
-      "price": "43",
-      "id": 7
+      "price": "",
+      "id": 1
     }
   ]
 }

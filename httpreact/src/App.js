@@ -5,9 +5,13 @@ import { useFetch } from './hooks/useFetch'
 const url = 'http://localhost:3000/products'
 
 function App() {
-  const { data: items, httpConfig, loading } = useFetch(url)
+  const { data: items, httpConfig, loading, error } = useFetch(url)
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
+
+  const handleDelete = (id)=>{
+    httpConfig(id,"DELETE")
+  }
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -24,13 +28,16 @@ function App() {
     <div className="App">
       <h1>Lista de Produtos!</h1>
       {loading && <p>Carregando dados</p>}
-      {!loading && (
+      {error && <p>{error}</p>}
+      {!error && (
         <ul>
           {items &&
             items.map(product => (
               <li key={product.id}>
                 {product.name} - {product.price}
+                <input type="submit" value="Apagar" onClick={()=>handleDelete(product.id)}/>
               </li>
+              
             ))}
         </ul>
       )}
