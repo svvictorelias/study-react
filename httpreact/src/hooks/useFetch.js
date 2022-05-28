@@ -7,9 +7,7 @@ export const useFetch = url => {
   const [method, setMethod] = useState(null)
   const [callFetch, setCallFetch] = useState(false)
   const [loading, setLoading] = useState(false)
-
   const [error, setError] = useState(null)
-
   const [itemId, setItemId] = useState(null)
 
   const httpConfig = (data, method) => {

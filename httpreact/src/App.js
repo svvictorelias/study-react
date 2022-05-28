@@ -1,5 +1,5 @@
 import './App.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useFetch } from './hooks/useFetch'
 
 const url = 'http://localhost:3000/products'
